@@ -13,7 +13,7 @@ function configureLogging() {
             .join(' ');
         $('#logs').append($(`<div class="${level.toLowerCase()}">`).text(`[${new Date().toISOString()}] [${level}] ${text}\n`));
         const logsContainer = document.getElementById('logs');
-        logsContainer.scrollTo(0, logsContainer.scrollHeight);
+        // logsContainer.scrollTo(0, logsContainer.scrollHeight);
     }
 
     console._error = console.error;
@@ -44,7 +44,7 @@ function getRandomClientId() {
 
 function getFormValues() {
     return {
-        region: $('#region').val(),
+        region: "ap-south-1",
         channelName: $('#channelName').val(),
         clientId: $('#clientId').val() || getRandomClientId(),
         sendVideo: $('#sendVideo').is(':checked'),
@@ -55,12 +55,32 @@ function getFormValues() {
         useTrickleICE: $('#useTrickleICE').is(':checked'),
         natTraversalDisabled: $('#natTraversalDisabled').is(':checked'),
         forceTURN: $('#forceTURN').is(':checked'),
-        accessKeyId: $('#accessKeyId').val(),
+        accessKeyId: "AKIAW2QDQW454F4GULUR",
         endpoint: $('#endpoint').val() || null,
-        secretAccessKey: $('#secretAccessKey').val(),
+        secretAccessKey: "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",
         sessionToken: $('#sessionToken').val() || null,
     };
 }
+
+// function getFormValues() {
+//     return {
+//         region: "ap-south-1",
+//         channelName: $('#channelName').val(),
+//         clientId: $('#clientId').val() || getRandomClientId(),
+//         sendVideo: true,
+//         sendAudio: true,
+//         openDataChannel: false,
+//         widescreen: true,
+//         fullscreen: false,
+//         useTrickleICE: true,
+//         natTraversalDisabled:false,
+//         forceTURN: false,
+//         accessKeyId: "AKIAW2QDQW454F4GULUR",
+//         endpoint: $('#endpoint').val() || null,
+//         secretAccessKey: "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",
+//         sessionToken: $('#sessionToken').val() || null,
+//     };
+// }
 
 function toggleDataChannelElements() {
     if (getFormValues().openDataChannel) {
